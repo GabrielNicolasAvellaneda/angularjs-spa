@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+    	<script src="app.js"></script>
+	</head>
+	<body ng-app="app">
+		<form ng-controller="TaskController">
+			<input type="text" ng-model="name" /><button ng-click="add()">Add</button>
+			<p>{{task.name}}</p>
+			<p>{{task.priority}}</p>
+			<select ng-model="task.priority" ng-options="priority.id as priority.name for priority in taskPriorities" ng-model="selected"></select>
+			<ul ng-repeat="task in taskPriorities">
+				<li>{{task.name}}</li>
+			</ul>
+		</form>
+	</body>
+</html>
